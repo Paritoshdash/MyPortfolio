@@ -5,7 +5,7 @@
   --foreground: #171717;
   
   /* Light theme colors */
-  --primary: #f59e0b;
+  --primary: #001d39;
   --primary-foreground: #ffffff;
   --secondary: #1e40af;
   --secondary-foreground: #ffffff;
@@ -48,8 +48,8 @@
     --foreground: #ededed;
     
     /* Dark theme colors */
-    --primary: #f59e0b;
-    --primary-foreground: #0a0a0a;
+    --primary: #bdd8e9;
+    --primary-foreground: #000000;
     --secondary: #3b82f6;
     --secondary-foreground: #0a0a0a;
     --accent: #0ea5e9;
@@ -69,13 +69,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* Prevent horizontal scrolling on mobile */
+  overflow-x: hidden;
 }
 
 /* Custom theme classes for light mode */
 .light {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #f59e0b;
+  --primary: #001d39;
   --primary-foreground: #ffffff;
   --secondary: #1e40af;
   --secondary-foreground: #ffffff;
@@ -95,8 +97,8 @@ body {
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --primary: #f59e0b;
-  --primary-foreground: #0a0a0a;
+  --primary: #bdd8e9;
+  --primary-foreground: #000000;
   --secondary: #3b82f6;
   --secondary-foreground: #0a0a0a;
   --accent: #0ea5e9;
@@ -111,8 +113,6 @@ body {
   --input: #27272a;
 }
 
-/* ... existing tailwind css ... */
-
 /* Marquee Animation for Scrolling Text */
 @keyframes marquee {
   0% { transform: translateX(0%); }
@@ -126,6 +126,52 @@ body {
   animation: marquee 20s linear infinite;
 }
 
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Reduce the size of the marquee text on mobile */
+  .animate-marquee {
+    font-size: 3rem;
+  }
+  
+  /* Adjust the 3D background for better mobile performance */
+  .fixed.inset-0.z-0 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* Reduce complexity on mobile */
+    transform: scale(1.2);
+  }
+  
+  /* Improve touch targets on mobile */
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Adjust swiper pagination for better mobile touch targets */
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 6px;
+  }
+}
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+  .animate-marquee {
+    font-size: 2.5rem;
+  }
+  
+  /* Further reduce spacing on very small screens */
+  .max-w-7xl.mx-auto {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 /* Styling for Skill Badges */
 .skill-badge {
   @apply bg-muted text-primary font-medium px-3 py-1 rounded-full text-sm;
@@ -133,4 +179,79 @@ body {
 
 .skill-badge {
   @apply bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-yellow-400 font-medium px-3 py-1 rounded-full text-sm;
+}
+
+/* Improve focus states for accessibility */
+a:focus, button:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve form accessibility on mobile */
+input, textarea, select {
+  font-size: 16px; /* Prevents zoom on iOS Safari */
+}
+
+/* Hide scrollbar for webkit browsers on mobile for a cleaner look */
+@media (max-width: 768px) {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Animation for mobile cursor blink */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink-cursor {
+  animation: blink-cursor 1s infinite;
+}
+
+/* Reduce animation intensity on mobile for better performance */
+@media (max-width: 768px) {
+  * {
+    animation-duration: 0.5s !important;
+  }
+  
+  .hero-title {
+    animation-duration: 0.3s !important;
+  }
+  
+  /* Reduce transform intensity on mobile */
+  .group:hover .transition-transform {
+    transform: none !important;
+  }
+}
+
+/* Utility classes for debugging responsive design */
+.debug-mobile {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  z-index: 9999;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .debug-mobile {
+    display: block;
+  }
 }
