@@ -8,30 +8,21 @@ import {
 } from "@/registry/magicui/terminal";
 import { useRouter } from "next/navigation";
 
-export default function Home() {
+export function PortfolioTerminalDemo() {
   const [isComplete, setIsComplete] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    // Simulate the terminal animation completion
-    const timer = setTimeout(() => {
-      setIsComplete(true);
-    }, 6000); // Adjust timing to match animation duration
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
     if (isComplete) {
-      const redirectTimer = setTimeout(() => {
+      const timer = setTimeout(() => {
         router.push("/main");
-      }, 1000); // Redirect after 1 second
-      return () => clearTimeout(redirectTimer);
+      }, 2000); // Redirect after 2 seconds
+      return () => clearTimeout(timer);
     }
   }, [isComplete, router]);
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-3xl">
         <Terminal>
           {/* Simulate the create-next-app command */}
@@ -39,27 +30,27 @@ export default function Home() {
             &gt; npx create-next-app@latest paritosh-portfolio --typescript --tailwind --eslint
           </TypingAnimation>
 
-          <AnimatedSpan className="text-primary" delay={1000}>
+          <AnimatedSpan className="text-green-500" delay={1000}>
             ✔ Creating project directory...
           </AnimatedSpan>
 
-          <AnimatedSpan className="text-primary" delay={1500}>
+          <AnimatedSpan className="text-green-500" delay={1500}>
             ✔ Installing Next.js, React, TypeScript...
           </AnimatedSpan>
 
-          <AnimatedSpan className="text-primary" delay={2000}>
+          <AnimatedSpan className="text-green-500" delay={2000}>
             ✔ Installing Tailwind CSS...
           </AnimatedSpan>
 
-          <AnimatedSpan className="text-primary" delay={2500}>
+          <AnimatedSpan className="text-green-500" delay={2500}>
             ✔ Installing ESLint...
           </AnimatedSpan>
 
-          <AnimatedSpan className="text-primary" delay={3000}>
+          <AnimatedSpan className="text-green-500" delay={3000}>
             ✔ Configuring project files...
           </AnimatedSpan>
 
-          <AnimatedSpan className="text-primary" delay={3500}>
+          <AnimatedSpan className="text-green-500" delay={3500}>
             ✔ Initializing Git repository...
           </AnimatedSpan>
 
@@ -74,7 +65,7 @@ export default function Home() {
         </Terminal>
 
         {isComplete && (
-          <div className="mt-6 text-center text-primary animate-pulse">
+          <div className="mt-6 text-center text-green-500">
             Redirecting to portfolio...
           </div>
         )}

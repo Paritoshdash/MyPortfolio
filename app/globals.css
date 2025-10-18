@@ -3,11 +3,41 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Light theme colors */
+  --primary: #f59e0b;
+  --primary-foreground: #ffffff;
+  --secondary: #1e40af;
+  --secondary-foreground: #ffffff;
+  --accent: #0ea5e9;
+  --accent-foreground: #ffffff;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -16,6 +46,22 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    
+    /* Dark theme colors */
+    --primary: #f59e0b;
+    --primary-foreground: #0a0a0a;
+    --secondary: #3b82f6;
+    --secondary-foreground: #0a0a0a;
+    --accent: #0ea5e9;
+    --accent-foreground: #0a0a0a;
+    --muted: #1f1f1f;
+    --muted-foreground: #9ca3af;
+    --card: #0a0a0a;
+    --card-foreground: #ededed;
+    --popover: #0a0a0a;
+    --popover-foreground: #ededed;
+    --border: #27272a;
+    --input: #27272a;
   }
 }
 
@@ -23,4 +69,68 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom theme classes for light mode */
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #f59e0b;
+  --primary-foreground: #ffffff;
+  --secondary: #1e40af;
+  --secondary-foreground: #ffffff;
+  --accent: #0ea5e9;
+  --accent-foreground: #ffffff;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+}
+
+/* Custom theme classes for dark mode */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #f59e0b;
+  --primary-foreground: #0a0a0a;
+  --secondary: #3b82f6;
+  --secondary-foreground: #0a0a0a;
+  --accent: #0ea5e9;
+  --accent-foreground: #0a0a0a;
+  --muted: #1f1f1f;
+  --muted-foreground: #9ca3af;
+  --card: #0a0a0a;
+  --card-foreground: #ededed;
+  --popover: #0a0a0a;
+  --popover-foreground: #ededed;
+  --border: #27272a;
+  --input: #27272a;
+}
+
+/* ... existing tailwind css ... */
+
+/* Marquee Animation for Scrolling Text */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  /* Doubling the text content to ensure a seamless loop */
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 20s linear infinite;
+}
+
+/* Styling for Skill Badges */
+.skill-badge {
+  @apply bg-muted text-primary font-medium px-3 py-1 rounded-full text-sm;
+}
+
+.skill-badge {
+  @apply bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-yellow-400 font-medium px-3 py-1 rounded-full text-sm;
 }
