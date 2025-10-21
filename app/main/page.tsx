@@ -293,16 +293,26 @@ const HomePage = () => {
             </div>
             <div className="flex items-center gap-6">
               <ul className="hidden md:flex items-center space-x-8 font-medium">
-                {["About", "Projects", "Experience", "Articles", "Contact"].map(
+                {["About", "Projects", "Experience", "Articles", "Vlog", "Contact"].map(
                   (item) => (
                     <li key={item}>
-                      <a
-                        href={`#${item.toLowerCase()}`}
-                        className="text-card-foreground/80 hover:text-primary transition-all duration-300 hover:font-semibold relative group"
-                      >
-                        {item}
-                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                      </a>
+                      {item === "Vlog" ? (
+                        <Link
+                          href="/vlog"
+                          className="text-card-foreground/80 hover:text-primary transition-all duration-300 hover:font-semibold relative group"
+                        >
+                          {item}
+                          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
+                      ) : (
+                        <a
+                          href={`#${item.toLowerCase()}`}
+                          className="text-card-foreground/80 hover:text-primary transition-all duration-300 hover:font-semibold relative group"
+                        >
+                          {item}
+                          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                      )}
                     </li>
                   )
                 )}
@@ -621,8 +631,8 @@ const HomePage = () => {
               </Link>
             </div>
             <div className="text-center mt-12">
-              <a
-                href="/main#articles"
+              <Link
+                href="/vlog"
                 className="inline-flex items-center gap-2 text-primary border-2 border-primary/30 hover:border-primary hover:bg-primary/10 px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300"
               >
                 View All Blogs
@@ -639,7 +649,7 @@ const HomePage = () => {
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
