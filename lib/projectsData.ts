@@ -22,6 +22,7 @@ export const projects: Project[] = [
     imageUrl: '/img/image.png', // Assuming your first project image is here
     techStack: ['Python', 'TensorFlow', 'OpenCV', 'React Native', 'MySQL', 'Node.js'],
     githubUrl: 'https://github.com/Paritoshdash/Sankalp.git',
+    liveUrl: 'https://sankalp-six.vercel.app/',
   },
   {
     slug: 'swasth-ai',
