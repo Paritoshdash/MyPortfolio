@@ -13,6 +13,7 @@ import { projects } from "@/lib/projectsData";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
 import { MobileMenu } from "@/components/MobileMenu";
 import { ResponsiveTest } from "@/components/ResponsiveTest";
+import { CertificationsGrid } from '@/components/CertificationsGrid';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -547,6 +548,30 @@ const HomePage = () => {
             </div>
           </div>
         </section>
+        <section id="certifications" className="py-24 bg-gradient-to-b from-card/30 to-background">
+          <div className="relative overflow-hidden whitespace-nowrap mb-16">
+            <h2 className="animate-marquee text-8xl md:text-9xl font-black uppercase text-black dark:text-white inline-block pr-12 opacity-10">
+              Certificates . Certificates . Certificates . 
+            </h2>
+            <h2 className="animate-marquee text-8xl md:text-9xl font-black uppercase text-black dark:text-white inline-block pr-12 opacity-10">
+              Certificates . Certificates . Certificates . 
+            </h2>
+          </div>
+          
+          <div className="max-w-7xl mx-auto px-8 cert-section-content">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                Professional Certifications
+              </h2>
+              <p className="text-xl text-card-foreground/80 max-w-2xl mx-auto leading-relaxed">
+                A collection of my verified achievements and technical specializations.
+              </p>
+            </div>
+            
+            {/* Using the grid component we created earlier */}
+            <CertificationsGrid />
+          </div>
+        </section>
 
         {/* Enhanced Blog Section */}
         <section id="articles" className="py-24">
@@ -724,6 +749,7 @@ const HomePage = () => {
         </footer>
       </div>
       <ResponsiveTest />
+      
     </main>
   );
 };
