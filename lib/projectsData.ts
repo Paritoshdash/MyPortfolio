@@ -44,10 +44,11 @@ export const projects: Project[] = [
       It incorporates predictive models (though simplified for this version) to flag potential health concerns based on reported data. 
       Secure user authentication is handled via JWT. The frontend uses Framer Motion for smooth UI interactions. 
       Focused on creating an efficient and secure system for managing health-related information within an educational institution.`,
-    imageUrl: '/img/image.png', // Using existing image as placeholder
+    imageUrl: '/img/c1ce3994-acb2-46bc-92d8-00aa586fc8a0.webp', // Using existing image as placeholder
     techStack: ['React.js', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Framer Motion', 'JWT'],
     githubUrl: 'https://github.com', // Replace with actual link if available
   },
+
 ];
 
 // Helper function to get a project by its slug
